@@ -4,13 +4,15 @@ import { Container, Row, Col } from 'reactstrap';
 import InputCountry from './components/InputCountry.jsx';
 import NavOptions from './components/Navbar.jsx';
 import CovidList from './components/List.jsx';
-
+import SingleCountry from './components/SingleCountry.jsx'
 
 class CovidApp extends Component {
 
     state = {
         data : null,
         request : null,
+        countryChosen : '',
+        list: true
     }
 
     addData = (res) =>{
@@ -23,20 +25,18 @@ class CovidApp extends Component {
         })
     }
 
-    filterCovidInfo = () => {
+    addCountry = (country) =>{
+        this.setState ({
+            countryChosen : country
+        })
+        console.log(this.state.countryChosen)
+    }
 
-        
-        if(this.state.request === "cases") {
-            return this.state.data.map(element => element.cases)
-          }
-      
-          if(this.state.request === "deaths") {
-            return this.state.data.map(element => element.deaths)
-          }
-           
-          if(this.state.request === "recovered") {
-            return this.state.data.map(element => element.recovered)
-          }
+    changeList = (valor) => {
+        this.setState({
+            list: valor
+        })
+        console.log(this.state.list)
     }
 
     render() {
@@ -44,17 +44,29 @@ class CovidApp extends Component {
             <div>
                 <h1>Covid App</h1>
                 <br/>
-                <Container>
+                <Container >
                     <Row xs="2">
                         <Col>
-                            <InputCountry />
+                            <InputCountry 
+                                addCountry = { this.addCountry }
+                                changeList = { this.changeList }
+                            />
                             <br/>
-                            <NavOptions changeRequest = { this.changeRequest }/>
+                            <NavOptions
+                                changeRequest = { this.changeRequest }
+                                changeList = { this.changeList }
+                            />
                             <CovidApi addData = { this.addData }/>
-                            <CovidList 
-                                info = { this.filterCovidInfo() }
+                            {this.state.list === true ? 
+                            (<CovidList 
                                 data = { this.state.data }    
-                                />
+                                request = {this.state.request}
+                                />) : (
+                            <SingleCountry 
+                                data = { this.state.data } 
+                                country = {this.state.countryChosen}
+                            />
+                                )}
                         </Col>
                         <Col><h1>mapa</h1></Col>
                         <Col></Col>

@@ -3,13 +3,37 @@ import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 class InputCountry extends Component {
 
+    state = {
+        content: ' '
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            content: e.target.value
+        })
+    }
+
+    handleClick = (e) => {
+        e.preventDefault();
+        console.log("click")
+        this.props.addCountry(this.state.content);
+        this.props.changeList(false);
+        this.setState({
+            content: ''
+        }
+
+        )
+    }
+
+
+
     render() {
         return (
             <div>
-                <InputGroup style={{width: "370px"}}>
-                    <Input />
+                <InputGroup style={{width: "370px"}} >
+                    <Input onChange={this.handleChange} value={this.state.content}/>
                     <InputGroupAddon addonType="append">
-                        <InputGroupText style={{cursor:'pointer'}}>search</InputGroupText>
+                        <InputGroupText style={{cursor:'pointer'}} onClick={this.handleClick}>search</InputGroupText>
                     </InputGroupAddon>
                 </InputGroup>
             </div>
