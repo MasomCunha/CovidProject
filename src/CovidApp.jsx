@@ -12,7 +12,8 @@ class CovidApp extends Component {
         data : null,
         request : null,
         input : '',
-        list: true
+        list: true,
+        sortType: ''
     }
 
     addData = (res) =>{
@@ -37,6 +38,12 @@ class CovidApp extends Component {
         })
     }
 
+    sortType = (sort) => {
+        this.setState({
+            sortType: sort
+        })
+    }
+
     render() {
         return (
             <div>
@@ -53,13 +60,15 @@ class CovidApp extends Component {
                             <NavOptions
                                 changeRequest = { this.changeRequest }
                                 changeList = { this.changeList }
+                                sortType = { this.sortType }
                             />
                             <CovidApi addData = { this.addData }/>
                             <CovidList 
                                 data = { this.state.data }    
-                                request = {this.state.request}
+                                request = { this.state.request }
                                 input = { this.state.input }
-                                list = {this.state.list}
+                                list = { this.state.list }
+                                sortType = { this.state.sortType }
                                 />
                         </Col>
                         <Col id = "mapid">
