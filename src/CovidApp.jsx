@@ -4,14 +4,14 @@ import { Container, Row, Col } from 'reactstrap';
 import InputCountry from './components/InputCountry.jsx';
 import NavOptions from './components/Navbar.jsx';
 import CovidList from './components/List.jsx';
-import SingleCountry from './components/SingleCountry.jsx'
+//import Grafs from './components/Grafs.jsx'
 
 class CovidApp extends Component {
 
     state = {
         data : null,
         request : null,
-        countryChosen : '',
+        input : '',
         list: true
     }
 
@@ -27,16 +27,14 @@ class CovidApp extends Component {
 
     addCountry = (country) =>{
         this.setState ({
-            countryChosen : country
+            input : country
         })
-        console.log(this.state.countryChosen)
     }
 
     changeList = (valor) => {
         this.setState({
             list: valor
         })
-        console.log(this.state.list)
     }
 
     render() {
@@ -57,20 +55,20 @@ class CovidApp extends Component {
                                 changeList = { this.changeList }
                             />
                             <CovidApi addData = { this.addData }/>
-                            {this.state.list === true ? 
-                            (<CovidList 
+                            <CovidList 
                                 data = { this.state.data }    
                                 request = {this.state.request}
-                                />) : (
-                            <SingleCountry 
-                                data = { this.state.data } 
-                                country = {this.state.countryChosen}
-                            />
-                                )}
+                                input = { this.state.input }
+                                list = {this.state.list}
+                                />
                         </Col>
-                        <Col><h1>mapa</h1></Col>
+                        <Col id = "mapid">
+                        
+                        </Col>
                         <Col></Col>
-                        <Col><h1>graficos</h1></Col>
+                        <Col>
+                           {/*<Grafs/> */} 
+                        </Col>
                     </Row>
                 </Container>
             </div>
