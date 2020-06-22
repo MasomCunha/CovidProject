@@ -37,10 +37,10 @@ const NavOptions = ({ changeRequest, changeList, sortType }) => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem onClick = { Largest }>
-                  largest
+                  Descending
                 </DropdownItem>
                 <DropdownItem onClick = { Smallest}>
-                  smallest
+                  Ascending
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

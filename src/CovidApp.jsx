@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import './CovidApp.css';
 import CovidApi from './api/CovidApi.jsx'
 import { Container, Row, Col } from 'reactstrap';
 import InputCountry from './components/InputCountry.jsx';
 import NavOptions from './components/Navbar.jsx';
 import CovidList from './components/List.jsx';
 //import Grafs from './components/Grafs.jsx'
+import Maps from './components/Maps.jsx'
 
 class CovidApp extends Component {
 
@@ -47,11 +49,11 @@ class CovidApp extends Component {
     render() {
         return (
             <div>
-                <h1>Covid App</h1>
+                <h1 className = "title">InfoCovid</h1>
                 <br/>
                 <Container >
-                    <Row xs="2">
-                        <Col>
+                    <Row xs= "2">
+                        <Col sm={{ size: 4 }}>
                             <InputCountry 
                                 addCountry = { this.addCountry }
                                 changeList = { this.changeList }
@@ -71,12 +73,12 @@ class CovidApp extends Component {
                                 sortType = { this.state.sortType }
                                 />
                         </Col>
-                        <Col id = "mapid">
-                        
+                        <Col sm={{ size: 8 }}>
+                            <Maps></Maps>
                         </Col>
                         <Col></Col>
                         <Col>
-                           {/*<Grafs/> */} 
+                         {/*<Grafs/> */}   
                         </Col>
                     </Row>
                 </Container>

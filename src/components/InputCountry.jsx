@@ -31,7 +31,7 @@ class InputCountry extends Component {
         return (
             <div>
                 <InputGroup style={{width: "370px"}} >
-                    <Input onChange={this.handleChange} value={this.state.content}/>
+                    <Input placeholder="insert country" onChange={this.handleChange} value={this.state.content} />
                     <InputGroupAddon addonType="append">
                         <InputGroupText style={{cursor:'pointer'}} onClick={this.handleClick}>search</InputGroupText>
                     </InputGroupAddon>
