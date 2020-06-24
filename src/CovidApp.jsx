@@ -5,13 +5,14 @@ import { Container, Row, Col } from 'reactstrap';
 import InputCountry from './components/InputCountry.jsx';
 import NavOptions from './components/Navbar.jsx';
 import CovidList from './components/List.jsx';
-//import Grafs from './components/Grafs.jsx'
+import Grafs from './components/Grafs.jsx'
 import Maps from './components/Maps.jsx'
 
 class CovidApp extends Component {
 
     state = {
         data : null,
+        globalData : null,
         request : null,
         input : '',
         list: true,
@@ -20,6 +21,10 @@ class CovidApp extends Component {
 
     addData = (res) =>{
         this.setState({ data : res.data })
+    }
+
+    addGlobalData = (res) => {
+        this.setState({globalData: res.data})
     }
 
     changeRequest = (request) => {
@@ -64,7 +69,10 @@ class CovidApp extends Component {
                                 changeList = { this.changeList }
                                 sortType = { this.sortType }
                             />
-                            <CovidApi addData = { this.addData }/>
+                            <CovidApi 
+                            addData = { this.addData }
+                            addGlobalData = { this.addGlobalData}
+                            />
                             <CovidList 
                                 data = { this.state.data }    
                                 request = { this.state.request }
@@ -74,11 +82,16 @@ class CovidApp extends Component {
                                 />
                         </Col>
                         <Col sm={{ size: 8 }}>
-                            <Maps></Maps>
-                        </Col>
-                        <Col></Col>
-                        <Col>
-                         {/*<Grafs/> */}   
+                            <Maps
+                            data = { this.state.data }    
+                            request = { this.state.request }
+                            list = { this.state.list }
+                            input = { this.state.input }/>
+
+                            <br/>
+                             <Grafs
+                                 globalData = {this.state.globalData}
+                             /> 
                         </Col>
                     </Row>
                 </Container>
