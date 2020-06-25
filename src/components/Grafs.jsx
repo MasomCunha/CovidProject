@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
-import { LineChart, XAxis, YAxis, CartesianGrid, Line, Legend } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Area, Legend, AreaChart, Tooltip } from 'recharts';
 
-const Grafics = ({ globalData }) => {
+const Grafics = ({ globalData, request }) => {
 
-  const data1 = [];
+  const dataForGraf = [];
 
   if (globalData !== null) {
     const arrayCases = Object.entries(globalData.cases)
@@ -17,11 +17,21 @@ const Grafics = ({ globalData }) => {
       xData["cases"] = arrayCases[i][1]
       xData["deaths"] = arrayDeaths[i][1]
       xData["recovered"] = arrayRecovered[i][1]
-      data1.push(xData)
+      dataForGraf.push(xData)
     }
-    console.log(data1)
+   // console.log(data1)
+  }
 
-
+  const showArea = () => {
+    if(request === "cases" || request === null) {
+      return <Area type="monotone" dataKey="cases" stroke="#ffcc00" fill="#ffcc00"/>
+    }
+    if(request === "deaths"){
+      return <Area type="monotone" dataKey="deaths" stroke="#ff0000" fill="#ff0000"/>
+    }
+    if(request === "recovered"){
+      return <Area type="monotone" dataKey="recovered" stroke="#33cc33" fill="#33cc33"/>
+    }
   }
 
 
@@ -29,16 +39,15 @@ const Grafics = ({ globalData }) => {
     <div>
       {globalData ?
         (<Fragment>
-          <h1 className="Grafic title">Covid world evolution since {data1[0].name}</h1>
-          <LineChart width={730} height={300} data={data1}>
+          <h1 className="Grafic title" style={{'fontSize': '20px'}}>Covid world evolution since {dataForGraf[0].name}</h1>
+          <AreaChart width={730} height={300} data={dataForGraf}>
             <XAxis dataKey="name" />
             <YAxis />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <Tooltip/>
             <Legend />
-            <Line type="monotone" dataKey="cases" stroke="#ffcc00" />
-            <Line type="monotone" dataKey="deaths" stroke="#ff0000" />
-            <Line type="monotone" dataKey="recovered" stroke="#33cc33" />
-          </LineChart>
+            { showArea() }
+          </AreaChart>
         </Fragment>) :
         (<h1>Loading...</h1>)}
     </div>

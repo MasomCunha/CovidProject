@@ -31,43 +31,55 @@ function Maps({ request, data, input, list }) {
     }
   }
 
-
-  const FilterMap = () => {
-    data ? data.map(e => {
-      return (
-        <Circle
-          center={[
-            e.countryInfo.lat,
-            e.countryInfo.long
-          ]}
-          fillColor="blue"
-          radius={e.cases}
-        />
-      )
-    })
-      : console.log("no data")
-  }
-
-
   return (
     <Map center={[41.56, -8.39]} zoom={2}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
+      { data ? (data.map(e =>
+        <Circle
+          center={[
+            e.countryInfo.lat,
+            e.countryInfo.long
+          ]}
+          fillColor={Color()}
+          radius={Radius(e)}
+          color={Color()}>
+          <Popup>
+            {"country: " + e.country}
+            <br />
+            {"cases: " + e.cases}
+            <br />
+            {"deaths: " + e.deaths}
+            <br />
+            {"recovered: " + e.recovered}
+          </Popup>
+        </Circle>))
+        : (console.log("no data"))}
+    </Map>
+  );
+}
 
-      {/*FiterMap()*/}
+export default Maps
 
-      {data ? (list === false ? (data.map(e => {
+
+{/*inserir no futuro
+
+
+  {data ? (list === false ? (data.map(e => {
         if (e.country === input) {
+          console.log(e.countryInfo.lat,
+                e.countryInfo.long)
           return (
             <Circle
               center={[
                 e.countryInfo.lat,
                 e.countryInfo.long
               ]}
-              fillColor={Color()}
-              radius={Radius(e)}>
+              fillColor={ Color() }
+              color = { Color() }
+              >
               <Popup>
                 {"country: " + e.country}
                 <br />
@@ -87,7 +99,8 @@ function Maps({ request, data, input, list }) {
                 e.countryInfo.long
               ]}
               fillColor={Color()}
-              radius={Radius(e)}>
+              radius={Radius(e)}
+              color = {Color()}>
               <Popup>
                 {"country: " + e.country}
                 <br />
@@ -101,10 +114,10 @@ function Maps({ request, data, input, list }) {
           )
         )) :
         (console.log("no data"))}
-    </Map>
-  );
-}
 
-export default Maps
 
+
+
+
+*/}
 

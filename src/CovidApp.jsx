@@ -60,6 +60,7 @@ class CovidApp extends Component {
                     <Row xs= "2">
                         <Col sm={{ size: 4 }}>
                             <InputCountry 
+                                data = { this.state.data } 
                                 addCountry = { this.addCountry }
                                 changeList = { this.changeList }
                             />
@@ -91,6 +92,7 @@ class CovidApp extends Component {
                             <br/>
                              <Grafs
                                  globalData = {this.state.globalData}
+                                 request = { this.state.request }
                              /> 
                         </Col>
                     </Row>
