@@ -6,7 +6,7 @@ class CovidApi extends Component {
 
 
     componentDidMount(){
-        axios.get('https://disease.sh/v2/countries').then(res => {
+        axios.get('https://disease.sh/v2/countries/').then(res => {
            //console.log(res.data);
            this.props.addData(res)
         });

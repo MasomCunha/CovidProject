@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const CovidList = ({ request, data, input, list, sortType }) => {
 
@@ -20,10 +21,11 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                 <div>
                     {data ? (data.map((element) => {
                         return (
+                            <Link to = {`/country/${element.country}`}>
                             <Row>
                                 <Col>
                                     <p style={{ background: "yellow", textAlign: "center" }}> {element.cases} </p>
-                                </Col>
+                                </Col>         
                                 <Col>
                                     <p style={{ textAlign: "center" }} key={element.country}><img src={element.countryInfo.flag} width="50" alt={element.country} /></p>
                                 </Col>
@@ -31,6 +33,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                                     <p>{element.country}</p>
                                 </Col>
                             </Row>
+                            </Link>
                         )
                     })) : (console.log("can´t find any data"))}
                 </div>
@@ -43,6 +46,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                 <div>
                     {data ? (data.map((element) => {
                         return (
+                            <Link to = {`/country/${element.country}`}>
                             <Row>
                                 <Col>
                                     <p style={{ background: "red", textAlign: "center" }}> {element.deaths} </p>
@@ -54,6 +58,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                                     <p>{element.country}</p>
                                 </Col>
                             </Row>
+                            </Link>
                         )
                     })) : (console.log("can´t find any data"))}
                 </div>
@@ -65,6 +70,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                 <div>
                     {data ? (data.map((element) => {
                         return (
+                            <Link to = {`/country/${element.country}`}>
                             <Row>
                                 <Col>
                                     <p style={{ background: "green", textAlign: "center" }}> {element.recovered} </p>
@@ -76,6 +82,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                                     <p>{element.country}</p>
                                 </Col>
                             </Row>
+                            </Link>
                         )
                     })) : (console.log("can´t find any data"))}
                 </div>
@@ -93,6 +100,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                         if (element.country === input) {
 
                             return (
+                                <Link to = {`/country/${element.country}`}>
                                 <Row>
                                     <Col>
                                         <p style={{ background: "yellow", textAlign: "center" }}> {element.cases} </p>
@@ -105,6 +113,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                                         <p>{element.country}</p>
                                     </Col>
                                 </Row>
+                                </Link>
                             )
                         }
 
@@ -122,6 +131,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                         if (element.country === input) {
 
                             return (
+                                <Link to = {`/country/${element.country}`}>
                                 <Row>
                                     <Col>
                                         <p style={{ background: "red", textAlign: "center" }}> {element.deaths} </p>
@@ -133,6 +143,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                                         <p>{element.country}</p>
                                     </Col>
                                 </Row>
+                                </Link>
                             )
                         }
                         return true
@@ -148,6 +159,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                         if (element.country === input) {
 
                             return (
+                                <Link to = {`/country/${element.country}`}>
                                 <Row>
                                     <Col>
                                         <p style={{ background: "green", textAlign: "center" }}> {element.recovered} </p>
@@ -156,6 +168,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                                         <p style={{ textAlign: "center" }} key={element.country}><img src={element.countryInfo.flag} width="50" alt={element.country} /></p>
                                     </Col>
                                 </Row>
+                                </Link>
                             )
                         }
                         return true
