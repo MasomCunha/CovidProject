@@ -20,71 +20,71 @@ const Grafics = ({ globalData, request }) => {
       dataForGraf.push(xData)
     }
 
-    for (let i = 0; i < dataForGraf.length; i++){
+    for (let i = 0; i < dataForGraf.length; i++) {
 
       const dateReceived = dataForGraf[i].name.split("/");
-      
-      
-    switch (dateReceived[0]) {
+
+
+      switch (dateReceived[0]) {
         case "1":
           dataForGraf[i].name = "Jan" + "/" + dateReceived[1];
-            break;
+          break;
         case "2":
           dataForGraf[i].name = "Fev" + "/" + dateReceived[1];
-            break;
+          break;
         case "3":
           dataForGraf[i].name = "Mar" + "/" + dateReceived[1];
-            break;
+          break;
         case "4":
           dataForGraf[i].name = "Apr" + "/" + dateReceived[1];
-            break;
+          break;
         case "5":
           dataForGraf[i].name = "May" + "/" + dateReceived[1];
-            break;
+          break;
         case "6":
           dataForGraf[i].name = "Jun" + "/" + dateReceived[1];
-            break;
+          break;
         case "7":
           dataForGraf[i].name = "Jul" + "/" + dateReceived[1];
-            break;
+          break;
         case "8":
           dataForGraf[i].name = "Aug" + "/" + dateReceived[1];
-            break;
+          break;
         case "9":
           dataForGraf[i].name = "Sep" + "/" + dateReceived[1];
-            break;
+          break;
         case "10":
           dataForGraf[i].name = "Out" + "/" + dateReceived[1];
-            break;
+          break;
         case "11":
           dataForGraf[i].name = "Nov" + "/" + dateReceived[1];
-            break;
+          break;
         case "12":
           dataForGraf[i].name = "Dec" + "/" + dateReceived[1];
-            break;
+          break;
         default:
           console.log("wrong month");
-    } 
-    
+      }
+
     }
-   
+
 
 
   }
 
   const showArea = () => {
-    if(request === "cases" || request === null) {
-      return <Area type="monotone" dataKey="cases" stroke="#ffcc00" fill="#ffcc00"/>
+    if (request === "cases" || request === null) {
+      return <Area type="monotone" dataKey="cases" stroke="#ffcc00" fill="#ffcc00" />
     }
-    if(request === "deaths"){
-      return <Area type="monotone" dataKey="deaths" stroke="#ff0000" fill="#ff0000"/>
+    if (request === "deaths") {
+      return <Area type="monotone" dataKey="deaths" stroke="#ff0000" fill="#ff0000" />
     }
-    if(request === "recovered"){
-      return <Area type="monotone" dataKey="recovered" stroke="#33cc33" fill="#33cc33"/>
+    if (request === "recovered") {
+      return <Area type="monotone" dataKey="recovered" stroke="#33cc33" fill="#33cc33" />
     }
   }
-    
- 
+
+
 
 
 
@@ -92,14 +92,20 @@ const Grafics = ({ globalData, request }) => {
     <div>
       {globalData ?
         (<Fragment>
-          <h1 className="Grafic title" style={{'fontSize': '20px'}}>Covid world evolution since {dataForGraf[0].name}</h1>
+          <h1 className="Grafic title" style={{ 'fontSize': '20px' }}>Covid world evolution since {dataForGraf[0].name}</h1>
           <AreaChart width={730} height={300} data={dataForGraf}>
-            <XAxis dataKey= "name" />
-            <YAxis />
+            <XAxis dataKey="name"
+              interval={2}
+            />
+            <YAxis
+              tickFormatter={(tick) =>
+                new Intl.NumberFormat('ru-RU', {
+                  style: 'decimal',
+                }).format(tick / 1000) + 'K'} />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-            <Tooltip/>
+            <Tooltip />
             <Legend />
-            { showArea() }
+            {showArea()}
           </AreaChart>
         </Fragment>) :
         (<h1>Loading...</h1>)}

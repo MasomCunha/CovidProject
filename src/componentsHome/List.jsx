@@ -24,13 +24,13 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                             <Link to = {`/country/${element.country}`}>
                             <Row>
                                 <Col>
-                                    <p style={{ background: "yellow", textAlign: "center" }}> {element.cases} </p>
+                                    <p style={{ color: "black", background: "yellow", textAlign: "center" }}> {element.cases} </p>
                                 </Col>         
                                 <Col>
                                     <p style={{ textAlign: "center" }} key={element.country}><img src={element.countryInfo.flag} width="50" alt={element.country} /></p>
                                 </Col>
                                 <Col>
-                                    <p>{element.country}</p>
+                                    <p style={{ color: "black"}} >{element.country}</p>
                                 </Col>
                             </Row>
                             </Link>
@@ -49,13 +49,13 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                             <Link to = {`/country/${element.country}`}>
                             <Row>
                                 <Col>
-                                    <p style={{ background: "red", textAlign: "center" }}> {element.deaths} </p>
+                                    <p style={{ color: "black", background: "red", textAlign: "center" }}> {element.deaths} </p>
                                 </Col>
                                 <Col>
                                     <p style={{ textAlign: "center" }} key={element.country}><img src={element.countryInfo.flag} width="50" alt={element.country} /></p>
                                 </Col>
                                 <Col>
-                                    <p>{element.country}</p>
+                                    <p style={{ color: "black"}}>{element.country}</p>
                                 </Col>
                             </Row>
                             </Link>
@@ -73,13 +73,13 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                             <Link to = {`/country/${element.country}`}>
                             <Row>
                                 <Col>
-                                    <p style={{ background: "green", textAlign: "center" }}> {element.recovered} </p>
+                                    <p style={{ color: "black", background: "green", textAlign: "center" }}> {element.recovered} </p>
                                 </Col>
                                 <Col>
                                     <p style={{ textAlign: "center" }} key={element.country}><img src={element.countryInfo.flag} width="50" alt={element.country} /></p>
                                 </Col>
                                 <Col>
-                                    <p>{element.country}</p>
+                                    <p style={{ color: "black"}}>{element.country}</p>
                                 </Col>
                             </Row>
                             </Link>
@@ -103,14 +103,14 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                                 <Link to = {`/country/${element.country}`}>
                                 <Row>
                                     <Col>
-                                        <p style={{ background: "yellow", textAlign: "center" }}> {element.cases} </p>
+                                        <p style={{ color: "black", background: "yellow", textAlign: "center" }}> {element.cases} </p>
                                     </Col>
                                     <Col>
                                         <p style={{ textAlign: "center" }} key={element.country}><img src={element.countryInfo.flag} width="50" alt={element.country} />
                                         </p>
                                     </Col>
                                     <Col>
-                                        <p>{element.country}</p>
+                                        <p style={{ color: "black"}}>{element.country}</p>
                                     </Col>
                                 </Row>
                                 </Link>
@@ -134,13 +134,13 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                                 <Link to = {`/country/${element.country}`}>
                                 <Row>
                                     <Col>
-                                        <p style={{ background: "red", textAlign: "center" }}> {element.deaths} </p>
+                                        <p style={{ color: "black", background: "red", textAlign: "center" }}> {element.deaths} </p>
                                     </Col>
                                     <Col>
                                         <p style={{ textAlign: "center" }} key={element.country}><img src={element.countryInfo.flag} width="50" alt={element.country} /></p>
                                     </Col>
                                     <Col>
-                                        <p>{element.country}</p>
+                                        <p style={{ color: "black"}}>{element.country}</p>
                                     </Col>
                                 </Row>
                                 </Link>
@@ -162,10 +162,10 @@ const CovidList = ({ request, data, input, list, sortType }) => {
                                 <Link to = {`/country/${element.country}`}>
                                 <Row>
                                     <Col>
-                                        <p style={{ background: "green", textAlign: "center" }}> {element.recovered} </p>
+                                        <p style={{ color:"black", background: "green", textAlign: "center" }}> {element.recovered} </p>
                                     </Col>
                                     <Col>
-                                        <p style={{ textAlign: "center" }} key={element.country}><img src={element.countryInfo.flag} width="50" alt={element.country} /></p>
+                                        <p style={{ color: "black", textAlign: "center" }} key={element.country}><img src={element.countryInfo.flag} width="50" alt={element.country} /></p>
                                     </Col>
                                 </Row>
                                 </Link>

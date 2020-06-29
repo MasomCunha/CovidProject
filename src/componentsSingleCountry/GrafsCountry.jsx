@@ -80,8 +80,13 @@ const Grafics = ({ countryCases }) => {
         (<Fragment>
           <h1 className="Grafic title" style={{ 'fontSize': '20px' }}>Covid world evolution since {dataForGraf[0].name}</h1>
           <LineChart width={730} height={300} data={dataForGraf}>
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis dataKey="name"
+              interval={2} />
+            <YAxis
+              tickFormatter={(tick) =>
+                new Intl.NumberFormat('ru-RU', {
+                  style: 'decimal',
+                }).format(tick / 1000) + 'K'} /> />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Tooltip />
             <Legend />
