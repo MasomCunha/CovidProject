@@ -16,11 +16,11 @@ const CountryInformation = ({ countryInfo }) => {
             console.log(countryInfo.data)
             return (
                 <Fragment>
-                    <h1>{ date() }</h1>
-                    <p>Cases: {countryInfo.data.todayCases}</p>
-                    <p>Deaths: {countryInfo.data.todayDeaths}</p>
-                    <p>Recovered: {countryInfo.data.todayRecovered}</p>
-                    <p>Tests: {countryInfo.data.tests }</p>
+                    <h1 style = {{ color: "#1b2d24"}}> { date() }</h1>
+                    <p style = {{ color: "yellow"}}>Cases: {countryInfo.data.todayCases}</p>
+                    <p style = {{ color: "red"}}>Deaths: {countryInfo.data.todayDeaths}</p>
+                    <p style = {{ color: "green"}}>Recovered: {countryInfo.data.todayRecovered}</p>
+                    <p style = {{ color: "blue"}}>Tests: {countryInfo.data.tests }</p>
                 </Fragment>
             )
         }
@@ -30,11 +30,11 @@ const CountryInformation = ({ countryInfo }) => {
         if (countryInfo) {
             return (
                 <Fragment>
-                    <h1>Per 1 Million</h1>
-                    <p>Cases per 1 Million: { countryInfo.data.casesPerOneMillion }</p>
-                    <p>Deaths per 1 Million: { countryInfo.data.deathsPerOneMillion }</p>
-                    <p>Recovered per 1 Million: { countryInfo.data.recoveredPerOneMillion }</p>
-                    <p>Tests per 1 Million: { countryInfo.data.testsPerOneMillion }</p>
+                    <h1 style = {{ color: "#1b2d24"}}>Per 1 Million</h1>
+                    <p style = {{ color: "yellow"}}>Cases per 1 Million: { countryInfo.data.casesPerOneMillion }</p>
+                    <p style = {{ color: "red"}}>Deaths per 1 Million: { countryInfo.data.deathsPerOneMillion }</p>
+                    <p style = {{ color: "green"}}>Recovered per 1 Million: { countryInfo.data.recoveredPerOneMillion }</p>
+                    <p style = {{ color: "blue"}}>Tests per 1 Million: { countryInfo.data.testsPerOneMillion }</p>
                 </Fragment>
             )
         }
@@ -48,7 +48,7 @@ const CountryInformation = ({ countryInfo }) => {
                 <Col>
                     { dairyCases() }
                 </Col>
-                <Col>
+                <Col >
                     { perMillion() }
                 </Col>
             </Row>

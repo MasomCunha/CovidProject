@@ -5,11 +5,23 @@ import { Link } from 'react-router-dom';
 const CovidList = ({ request, data, input, list, sortType }) => {
 
 
-    if (sortType === "Largest") {
+    if (sortType === "Largest" && request === "cases") {
         data ? data.sort((a, b) => (a.cases < b.cases) ? 1 : -1) : console.log("no data")
     }
-    if (sortType === "Smallest") {
+    if (sortType === "Smallest" && request === "cases") {
         data ? data.sort((a, b) => (a.cases > b.cases) ? 1 : -1) : console.log("no data")
+    }
+    if (sortType === "Largest" && request === "deaths") {
+        data ? data.sort((a, b) => (a.deaths < b.deaths) ? 1 : -1) : console.log("no data")
+    }
+    if (sortType === "Smallest" && request === "deaths") {
+        data ? data.sort((a, b) => (a.deaths > b.deaths) ? 1 : -1) : console.log("no data")
+    }
+    if (sortType === "Largest" && request === "recovered") {
+        data ? data.sort((a, b) => (a.recovered < b.recovered) ? 1 : -1) : console.log("no data")
+    }
+    if (sortType === "Smallest" && request === "recovered") {
+        data ? data.sort((a, b) => (a.recovered > b.recovered) ? 1 : -1) : console.log("no data")
     }
 
 
@@ -183,7 +195,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
 
 
     return (
-        <Container style={{  height:'550px', overflowY: 'scroll', background: "#f5f5f0" }}>
+        <Container style={{  height:'550px', overflowY: 'scroll', background: "#617069" }}>
             {list === true ? (FilterCovidInfo()) : (SingleCountry())}
         </Container>
 

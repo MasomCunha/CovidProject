@@ -32,7 +32,7 @@ const NavOptions = ({ changeRequest, changeList, sortType }) => {
           <NavLink>Recovered</NavLink>
         </NavItem>
         <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret style = {{background: "#654de5", color: "black"}}>
                 Sort
               </DropdownToggle>
               <DropdownMenu right>

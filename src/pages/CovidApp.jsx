@@ -55,6 +55,7 @@ class CovidApp extends Component {
     render() {
         return (
             <div>
+             <br/>
                 <h1 className="title">InfoCovid</h1>
                 <br />
                     <Container >

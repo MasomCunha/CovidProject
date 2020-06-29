@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import axios from 'axios';
  
 
@@ -22,7 +22,7 @@ class CountryInfoApi extends Component {
 
     render(){
         return(
-          <br/>
+          <Fragment/>
         )
     }
 }

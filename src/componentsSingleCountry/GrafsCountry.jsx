@@ -78,15 +78,16 @@ const Grafics = ({ countryCases }) => {
     <div>
       {countryCases ?
         (<Fragment>
-          <h1 className="Grafic title" style={{ 'fontSize': '20px' }}>Covid world evolution since {dataForGraf[0].name}</h1>
+          <h1 className="Grafic title" style={{ fontSize: '20px' }}>Covid evolution since {dataForGraf[0].name}</h1>
           <LineChart width={730} height={300} data={dataForGraf}>
             <XAxis dataKey="name"
-              interval={2} />
+              interval={2} 
+              stroke = "black"
+              />
             <YAxis
+              stroke = "black"
               tickFormatter={(tick) =>
-                new Intl.NumberFormat('ru-RU', {
-                  style: 'decimal',
-                }).format(tick / 1000) + 'K'} /> />
+                new Intl.NumberFormat().format(tick / 1000) + 'K'} />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <Tooltip />
             <Legend />
