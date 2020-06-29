@@ -3,13 +3,20 @@ import { Container, Row, Col } from 'reactstrap';
 
 const CountryInformation = ({ countryInfo }) => {
 
+    const date = () => {
+        const now = new Date()
+    
+        return (now.getDate() + "/" + (now.getMonth() + 1 ) + "/" + now.getFullYear())
+        
+      }
+
 
     const dairyCases = () => {
         if (countryInfo) {
             console.log(countryInfo.data)
             return (
                 <Fragment>
-                    <h1>Today</h1>
+                    <h1>{ date() }</h1>
                     <p>Cases: {countryInfo.data.todayCases}</p>
                     <p>Deaths: {countryInfo.data.todayDeaths}</p>
                     <p>Recovered: {countryInfo.data.todayRecovered}</p>
