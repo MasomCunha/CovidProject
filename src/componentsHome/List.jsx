@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 const CovidList = ({ request, data, input, list, sortType }) => {
 
 
-    if (sortType === "Largest" && request === "cases") {
+    if (sortType === "Largest" && (request === "cases" || request === null)) {
         data ? data.sort((a, b) => (a.cases < b.cases) ? 1 : -1) : console.log("no data")
     }
-    if (sortType === "Smallest" && request === "cases") {
+    if (sortType === "Smallest" && request === "cases" || request === null)) {
         data ? data.sort((a, b) => (a.cases > b.cases) ? 1 : -1) : console.log("no data")
     }
     if (sortType === "Largest" && request === "deaths") {
