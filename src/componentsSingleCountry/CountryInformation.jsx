@@ -44,7 +44,7 @@ const CountryInformation = ({ countryInfo }) => {
 
     return (
         <Container>
-            <Row>
+            <Row xs= "1" md = "2">
                 <Col>
                     { dairyCases() }
                 </Col>

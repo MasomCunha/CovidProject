@@ -195,7 +195,7 @@ const CovidList = ({ request, data, input, list, sortType }) => {
 
 
     return (
-        <Container style={{  height:'550px', overflowY: 'scroll', background: "#617069" }}>
+        <Container style={{  height:'400px', overflowY: 'scroll', background: "#617069" }}>
             {list === true ? (FilterCovidInfo()) : (SingleCountry())}
         </Container>
 

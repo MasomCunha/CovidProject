@@ -35,7 +35,7 @@ class SingleCountry extends Component {
                         addCountryCases={this.addCountryCases}
                         addCountryInfo={this.addCountryInfo}
                     />
-                    <Row xs="2">
+                    <Row xs="1" md = "2">
                         <Col className="FlagAndName">
                             <Flag
                                 countryInfo={this.state.countryInfo}

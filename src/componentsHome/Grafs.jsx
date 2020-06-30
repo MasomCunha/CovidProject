@@ -93,7 +93,7 @@ const Grafics = ({ globalData, request }) => {
       {globalData ?
         (<Fragment>
           <h1 className="Grafic title" style={{ fontSize: '20px' }}>Covid world evolution since {dataForGraf[0].name}</h1>
-          <AreaChart width={730} height={300} data={ dataForGraf }>
+          <AreaChart width={600} height={300} data={ dataForGraf }>
             <XAxis dataKey="name"
               interval={2}
               stroke = "black"

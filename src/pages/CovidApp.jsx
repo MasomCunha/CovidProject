@@ -59,8 +59,8 @@ class CovidApp extends Component {
                 <h1 className="title">InfoCovid</h1>
                 <br />
                     <Container >
-                        <Row xs="2">
-                            <Col sm={{ size: 4 }}>
+                        <Row xs="1" sm="1" md="2">
+                            <Col xs = {{ size: 12}} sm={{ size: 12 }} md = {{ size: 5 }}>
                                 <InputCountry
                                     data={this.state.data}
                                     addCountry={this.addCountry}
@@ -84,7 +84,7 @@ class CovidApp extends Component {
                                     sortType={this.state.sortType}
                                 />
                             </Col>
-                            <Col sm={{ size: 8 }}>
+                            <Col  xs = {{ size: 12}} sm={{ size: 12 }} md = {{ size: 7 }}>
                                 <Maps
                                     data={this.state.data}
                                     request={this.state.request}
