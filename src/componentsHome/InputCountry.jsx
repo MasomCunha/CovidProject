@@ -64,6 +64,8 @@ class InputCountry extends Component {
         })
     }
 
+    ShowAll = () => { this.props.changeList(true) }
+
 
 
     render() {
@@ -74,9 +76,10 @@ class InputCountry extends Component {
                     <Input placeholder="insert country" onChange={this.onTextChange} value={this.state.content} />
                     <InputGroupAddon addonType="append">
                         <InputGroupText style={{ cursor: 'pointer' }} onClick={this.handleClick}>search</InputGroupText>
+                        <InputGroupText style={{ cursor: 'pointer' }} onClick={this.ShowAll}>show all</InputGroupText>
                     </InputGroupAddon>
                 </InputGroup>
-                {this.renderSuggestions()}
+                {this.renderSuggestions()}    
             </div>
         )
     }

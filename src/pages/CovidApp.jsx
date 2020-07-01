@@ -69,7 +69,6 @@ class CovidApp extends Component {
                                 <br />
                                 <NavOptions
                                     changeRequest={this.changeRequest}
-                                    changeList={this.changeList}
                                     sortType={this.sortType}
                                 />
                                 <CovidApi

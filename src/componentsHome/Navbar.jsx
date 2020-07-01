@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-const NavOptions = ({ changeRequest, changeList, sortType }) => {
+const NavOptions = ({ changeRequest, sortType }) => {
 
   
   const CovidCases = () => { changeRequest("cases") }
@@ -13,15 +13,10 @@ const NavOptions = ({ changeRequest, changeList, sortType }) => {
   const Largest = () => { sortType("Largest") }
 
   const Smallest = () => { sortType("Smallest") }
-  
-  const ShowAll = () => { changeList(true) }
 
   return (
     <div>
       <Nav tabs>
-        <NavItem style={{cursor:'pointer', background:'#ff9933' } } onClick = { ShowAll }>
-          <NavLink>All</NavLink>
-        </NavItem>
         <NavItem style={{cursor:'pointer', background:'yellow' } } onClick = { CovidCases }>
           <NavLink>Cases</NavLink>
         </NavItem>
